@@ -1,0 +1,122 @@
+// імпортуємо файл нульового стилю
+@import "zero_style.scss"; 
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+body {
+    user-select: none;
+}
+
+.intro {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    font-size: 55px;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+
+    animation-name: intro;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+.main {
+    height: 100vh;
+    background: url('../IMG/1.gif') center/cover no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: flex-start;
+    padding: 25px 30px 80px;
+    overflow: hidden;
+}
+
+.clouds {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    &__cloud {
+        flex: 1 1 33%;
+        margin: 0 100px 0;
+        text-align: center;
+        position: relative;
+        right: -100%;
+        animation-name: clouds-moving;
+        animation-delay: 4s;
+        animation-duration: 7s;
+        animation-iteration-count: infinite;
+        &:hover {
+            animation-play-state: paused;
+            cursor: pointer;
+        }
+        &:active {
+            filter: drop-shadow(5px 5px 5px #000);
+            bottom: -50px;
+        }
+    }
+}
+
+.camel-road {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.camel {
+        width: 300px;
+    img {
+        transform: scaleX(-1);
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+    }
+
+    position: relative;
+    left: -20%;
+    animation: camel-moving 7s linear 4s infinite;
+    
+    &:hover {
+        animation-play-state: paused;
+        cursor: pointer;
+    }
+    &:active {
+        filter: drop-shadow(5px 5px 5px #000);
+        bottom: 50px;
+    }
+}
+
+@keyframes intro {
+    0% {
+        height: 100%;
+    }
+    100% {
+        height: 0%;
+    }
+}
+
+@keyframes camel-moving {
+    0% {
+        left: -20%;
+    }
+    100% {
+        left: 110%;
+    }
+}
+
+@keyframes clouds-moving {
+    0% {
+        right: -100%;
+    }
+    100% {
+        right: 150%;
+    }
+}
